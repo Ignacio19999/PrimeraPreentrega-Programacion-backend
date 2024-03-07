@@ -7,7 +7,7 @@ const PRODUCTS_FILE = 'productos.json';
 
 router.get('/', async (req, res) => {
   try {
-    const limit = req.query.limit || 10; // Default limit or from query parameter
+    const limit = req.query.limit || 10;
     const data = await fs.readFile(PRODUCTS_FILE, 'utf-8');
     const products = JSON.parse(data).slice(0, limit);
     res.json(products);
